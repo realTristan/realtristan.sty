@@ -1,0 +1,58 @@
+% realtristan
+% 
+% (c) Buffalo Bill
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+% 
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{realtristan}[2011/01/11 v0.01 LaTeX package for my own purpose]
+\RequirePackage[fleqn]{amsmath}
+\RequirePackage{suffix}
+
+% % % % % % % % % % % % % % % % % % % % % % %
+%                                           %
+%             Physics Commands              %
+%                                           %
+% % % % % % % % % % % % % % % % % % % % % % %
+\newcommand{\etot}{ E_{tot} = E_{tot}\prime }
+\newcommand{\ptot} { P_{tot} = P_{tot}\prime }
+\newcommand{\ek} { \frac{1}{2}mv^2 }
+\newcommand{\ee} { \frac{1}{2}kx^2 }
+
+% % % % % % % % % % % % % % % % % % % % % % %
+%                                           %
+%             Equation Commands             %
+%                                           %
+% % % % % % % % % % % % % % % % % % % % % % %
+\def\eq{\@ifstar\@eq\@@eq}
+\def\@eq#1{
+  \@fleqnfalse
+  \begin{align*}#1\end{align*}
+}
+\def\@@eq#1{
+  \@fleqnfalse
+  \begin{align}#1\end{align}
+}
+
+% % % % % % % % % % % % % % % % % % % % % % %
+%                                           %
+%             L-Align Commands              %
+%                                           %
+% % % % % % % % % % % % % % % % % % % % % % %
+\def\lalign{\@ifstar\@lalign\@@lalign}
+\def\@lalign#1{
+  \@fleqntrue
+  \begin{flalign*}#1\end{flalign*}
+}
+\def\@@lalign#1{
+  \@fleqntrue
+  \begin{flalign}#1\end{flalign}
+}
+
+
+
+\endinput
+%%
+%% End of file `realtristan.sty'.
