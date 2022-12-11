@@ -62,7 +62,7 @@
   (\d) = (\vb)(\t) - \frac{1}{2}(\a)(\t)^2
 }
 \def\kinc#1{\setkeys{kinematics}{#1}
-  (\d) = \left(\frac{(\va) + (\vb)}{2}\right(\t))
+  (\d) = \left(\frac{(\va) + (\vb)}{2}\right)(\t)
 }
 \def\kind#1{\setkeys{kinematics}{#1}
   (\vb) = (\va) + (\a)(\t)
@@ -144,12 +144,14 @@
 %           Adjustment Commands             %
 %                                           %
 % % % % % % % % % % % % % % % % % % % % % % %
-\def\flex#1#2{
-  \begin{minipage}{#1\textwidth}#2\end{minipage}
+\define@key{adjustments}{width}{\def\width{#1}}
+\def\width{0.5\textwidth}
+\def\flex#1#2{\setkeys{adjustments}{#1}
+  \begin{minipage}{\width}#2\end{minipage}
   \leavevmode
 }
-\def\adjust#1#2{
-  \begin{adjustwidth}{#1cm}{0pt}#2\end{adjustwidth}
+\def\adjust#1#2{\setkeys{adjustments}{#1}
+  \begin{adjustwidth}{\width}{0pt}#2\end{adjustwidth}
   \leavevmode
 }
 

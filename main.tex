@@ -5,19 +5,40 @@
 \date{\today}
 \begin{document}
 \maketitle
-
-\section{Middle Align Calculations} {
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-  \malign*{
-    \therefore \kina{}
-  }
- }
- 
-\section{Left Align Calculations} {
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-  \lalign{
-      \therefore \kinb{}
-  }
- }
-
+\header {Physics Kinematic Equations} {
+	\adjust{width=1cm}{
+		Use the 'flex' command to put items beside eachother.
+		Substitute values into the kinematic equations using the following keys: a=?, t=?, d=?, v1=?, v2=?\newline
+	}
+	\flex{}{
+		\lalign*{
+			& \kina{} \\\\
+			& \kinb{} \\\\
+			& \kinc{} \\\\
+			& \kind{} \\\\
+			& \kine{} \\
+		}
+	}
+	\flex{}{
+		\lalign*{
+			& \kina{a=0.264, v1=13.6} 	\\\\
+			& \kinb{a=0.264, v2=0} 		\\\\
+			& \kinc{t=10.6, v1=10.2} 	\\\\
+			& \kind{t=10.6, v1=16.7} 	\\\\
+			& \kine{t=6.4, d=9.4} 	\\
+		}
+	}
+}
+\header{Middle Align Calculations} {
+	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+	\malign*{
+		\therefore \kina{}
+	}
+}
+\header{Left Align Calculations} {
+	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+	\lalign{
+		\therefore \kinb{}
+	}
+}
 \end{document}
