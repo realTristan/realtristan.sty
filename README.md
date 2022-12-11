@@ -14,7 +14,7 @@
 - Includes Matrices
 
 # Adjustments
-- Includes and easy to use environment for adjustwidth, align, etc.
+- Includes easy to use environments for adjustwidth, align, etc.
 
 # Text and Headers
 - Includes easier to type bold, italic, bold + italic commands
