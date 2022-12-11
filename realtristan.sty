@@ -12,7 +12,7 @@
 \RequirePackage[]{amssymb}
 \RequirePackage{graphicx}
 \RequirePackage{changepage}
-\RequirePackage{pgfkeys}
+\RequirePackage{keyval}
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage[colorlinks=true]{hyperref}
 \hypersetup{
@@ -22,102 +22,50 @@
     urlcolor=RubineRed,
 }
 
-% For \include{...}
-\let\clearpage\relax
-
-
 % % % % % % % % % % % % % % % % % % % % % % %
 %                                           %
 %             Physics Commands              %
 %                                           %
 % % % % % % % % % % % % % % % % % % % % % % %
-% Energy and Momentum
+\def\unimot{v = \frac{\Delta d}{\Delta t}}
 \def\etot{E_{tot}}
 \def\ptot{P_{tot}}
-\def\ek{\frac{1}{2}mv^2}
-\def\ee{\frac{1}{2}kx^2}
+
+\define@key{energy_momentum}{m}{\def\m{#1}}
+\define@key{energy_momentum}{v}{\def\v{#1}}
+\define@key{energy_momentum}{k}{\def\k{#1}}
+\define@key{energy_momentum}{x}{\def\x{#1}}
+\def\m{m}\def\v{v}\def\k{k}\def\x{x}
+\def\ek#1{\setkeys{energy_momentum}{#1}
+  \frac{1}{2}(\m)(\v)^2
+}
+\def\ee#1{\setkeys{energy_momentum}{#1}
+  \frac{1}{2}(\k)(\x)^2
+}
 
 % Kinematics
-\def\unimot{v = \frac{\Delta d}{\Delta t}}
-\makeatletter
-\pgfkeys{/realtristan/kinematics/.cd,
-  d/.initial=\Delta d,
-  t/.initial=\Delta t,
-  a/.initial=a,
-  v1/.initial=v_1,
-  v2/.initial=v_2,
+\define@key{kinematics}{d}{\def\d{#1}}
+\define@key{kinematics}{t}{\def\t{#1}}
+\define@key{kinematics}{a}{\def\a{#1}}
+\define@key{kinematics}{v1}{\def\va{#1}}
+\define@key{kinematics}{v2}{\def\vb{#1}}
+\def\d{\Delta d}\def\t{\Delta t}\def\a{a}
+\def\va{v_1}\def\vb{v_2}
+\def\kina#1{\setkeys{kinematics}{#1}
+  (\d) = (\va)(\t) + \frac{1}{2}(\a)(\t)^2
 }
-\def\realtristan@set@keys#1{%%
-  \pgfkeys{/realtristan/kinematics/.cd,#1}}
-\def\realtristan@get#1{%%
-  \pgfkeysvalueof{/kinematics/#1}}
-
-\def\kina[1]{
-  \bgroup
-  \realtristan@set@keys{#1}%%
-  \def\d\realtristan@get{d}
-  \def\t\realtristan@get{t}
-  \def\a\realtristan@get{a}
-  \def\va\realtristan@get{v1}
-  \d = \va\t + \frac{1}{2}\a\t^2
-  \egroup
+\def\kinb#1{\setkeys{kinematics}{#1}
+  (\d) = (\vb)(\t) - \frac{1}{2}(\a)(\t)^2
 }
-
-\def\kinb[1]{
-  \bgroup
-  \realtristan@set@keys{#1}%%
-  \def\d\realtristan@get{d}
-  \def\t\realtristan@get{t}
-  \def\a\realtristan@get{a}
-  \def\va\realtristan@get{v1}
-  \d = \vb\t - \frac{1}{2}\a\t^2
-  \egroup
+\def\kinc#1{\setkeys{kinematics}{#1}
+  (\d) = \left(\frac{(\va) + (\vb)}{2}\right(\t))
 }
-
-\def\kinc[1]{
-  \bgroup
-  \realtristan@set@keys{#1}%%
-  \def\d\realtristan@get{d}
-  \def\t\realtristan@get{t}
-  \def\va\realtristan@get{v1}
-  \def\vb\realtristan@get{v2}
-  \Delta \d = \left(\frac{\va + \vb}{2}\right\t)
-  \egroup
+\def\kind#1{\setkeys{kinematics}{#1}
+  (\vb) = (\va) + (\a)(\t)
 }
-
-\def\kind[1]{
-  \bgroup
-  \realtristan@set@keys{#1}%%
-  \def\t\realtristan@get{t}
-  \def\a\realtristan@get{a}
-  \def\va\realtristan@get{v1}
-  \def\vb\realtristan@get{v2}
-  \vb = \va + \a\t
-  \egroup
+\def\kine#1{\setkeys{kinematics}{#1}
+  (\vb) = (\va) + 2(\a)(\d)
 }
-
-\def\kine[1]{
-  \bgroup
-  \realtristan@set@keys{#1}%%
-  \def\d\realtristan@get{d}
-  \def\a\realtristan@get{a}
-  \def\va\realtristan@get{v1}
-  \def\vb\realtristan@get{v2}
-  \vb = \va + 2\a\d
-  \egroup
-}
-
-\makeatother
-
-
-% % % % % % % % % % % % % % % % % % % % % % %
-%                                           %
-%              Math Commands                %
-%                                           %
-% % % % % % % % % % % % % % % % % % % % % % %
-\def\mat[1]{\begin{matrix}#1\end{matrix}}
-\def\smat[1]{\begin{smallmatrix}#1\end{smallmatrix}}
-
 
 % % % % % % % % % % % % % % % % % % % % % % %
 %                                           %
@@ -129,26 +77,22 @@
 
 % Left Align
 \def\lalign{\@ifstar\@lalign\@@lalign}
-\def\@lalign#1{
-  \@fleqntrue
+\def\@lalign#1{\@fleqntrue
   \begin{flalign*}#1\end{flalign*}
   \leavevmode
 }
-\def\@@lalign#1{
-  \@fleqntrue
+\def\@@lalign#1{\@fleqntrue
   \begin{flalign}#1\end{flalign}
   \leavevmode
 }
 
 % Middle Align
 \def\malign{\@ifstar\@malign\@@malign}
-\def\@malign#1{
-  \@fleqnfalse
+\def\@malign#1{\@fleqnfalse
   \begin{align*}#1\end{align*}
   \leavevmode
 }
-\def\@@malign#1{
-  \@fleqnfalse
+\def\@@malign#1{\@fleqnfalse
   \begin{align}#1\end{align}
   \leavevmode
 }
@@ -170,9 +114,9 @@
 %              Text  Commands               %
 %                                           %
 % % % % % % % % % % % % % % % % % % % % % % %
-\def\b[1]{\textbf{#1}}
-\def\it[1]{\textit{#1}}
-\def\bit[1]{\textbf{\textit{#1}}}
+\def\b#1{\textbf{#1}}
+\def\it#1{\textit{#1}}
+\def\bit#1{\textbf{\textit{#1}}}
 
 
 % % % % % % % % % % % % % % % % % % % % % % %
@@ -182,7 +126,12 @@
 % % % % % % % % % % % % % % % % % % % % % % %
 % #1: Scale
 % #2: Image Path
-\def\image[2]{\includegraphics[scale=#1]{#2}}
+\define@key{images}{scale}{\def\scale{#1}}
+\define@key{images}{path}{\def\path{#1}}
+\def\scale{1}\def\path{}
+\def\image#1{\setkeys{images}{#1}
+  \includegraphics[scale=\scale]{\path}
+}
 
 
 % % % % % % % % % % % % % % % % % % % % % % %
@@ -190,8 +139,8 @@
 %           Adjustment Commands             %
 %                                           %
 % % % % % % % % % % % % % % % % % % % % % % %
-\def\flex[2]{\begin{minipage}{#1\textwidth}#2\end{minipage}\leavevmode}
-\def\adjust[2]{\begin{adjustwidth}{#1cm}{0pt}#2\end{adjustwidth}}
+\def\flex#1#2{\begin{minipage}{#1\textwidth}#2\end{minipage}\leavevmode}
+\def\adjust#1#2{\begin{adjustwidth}{#1cm}{0pt}#2\end{adjustwidth}}
 
 
 % % % % % % % % % %
