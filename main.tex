@@ -1,25 +1,29 @@
 \documentclass{article}
 \usepackage{realtristan}
-\usepackage{amsmath}
-
-\title{Title}
-\author{Tristan Simpson}
+\usepackage{hyperref}
+\title{realtristan.sty}
+\author{\href{mailto:heytristaann@gmail.com}{heytristaann@gmail.com}}
 \date{\today}
 \begin{document}
 \maketitle
 
-\eq*{
-    test\;test
-}
 
-\section*{Calculations} {
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-    \lalign {
-        penis size &= 10 \\
-        &= 1\times10^1
-    }
-}
+\noindent hello  my name is tristan and this is my equation: \eq{1 + 1 = 2} which is very complicated
 
+\section{Middle Align Calculations} {
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+  \malign*{
+      \therefore house\;size &\approx 10 \\
+      &\approx 1\times10^1
+  }
+ }
 
+\section{Left Align Calculations} {
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+  \lalign{
+      \therefore house\;size &\approx 10 \\
+      &\approx 1\times10^1
+  }
+ }
 
 \end{document}

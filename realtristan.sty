@@ -7,52 +7,176 @@
 %% in directory macros/latex/base/lppl.txt.
 % 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{realtristan}[2011/01/11 v0.01 LaTeX package for my own purpose]
+\ProvidesPackage{realtristan}
 \RequirePackage[fleqn]{amsmath}
-\RequirePackage{suffix}
+\RequirePackage[]{amssymb}
+\RequirePackage{graphicx}
+\RequirePackage{changepage}
+\RequirePackage{pgfkeys}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage[colorlinks=true]{hyperref}
+\hypersetup{
+    linkcolor=NavyBlue,
+    citecolor=ForestGreen,
+    filecolor=Plum,
+    urlcolor=RubineRed,
+}
+
+% For \include{...}
+\let\clearpage\relax
+
 
 % % % % % % % % % % % % % % % % % % % % % % %
 %                                           %
 %             Physics Commands              %
 %                                           %
 % % % % % % % % % % % % % % % % % % % % % % %
-\newcommand{\etot}{ E_{tot} = E_{tot}\prime }
-\newcommand{\ptot} { P_{tot} = P_{tot}\prime }
-\newcommand{\ek} { \frac{1}{2}mv^2 }
-\newcommand{\ee} { \frac{1}{2}kx^2 }
+% Energy and Momentum
+\def\etot{E_{tot}}
+\def\ptot{P_{tot}}
+\def\ek{\frac{1}{2}mv^2}
+\def\ee{\frac{1}{2}kx^2}
+
+% Kinematics
+\def\unimot{v = \frac{\Delta d}{\Delta t}}
+\makeatletter
+\pgfkeys{/realtristan/kinematics/.cd,
+  d/.initial=\Delta d,
+  t/.initial=\Delta t,
+  a/.initial=a,
+  v1/.initial=v_1,
+  v2/.initial=v_2,
+}
+\def\realtristan@set@keys#1{%%
+  \pgfkeys{/realtristan/kinematics/.cd,#1}}
+\def\realtristan@get#1{%%
+  \pgfkeysvalueof{/kinematics/#1}}
+
+\def\kina[1]{
+  \bgroup
+  \realtristan@set@keys{#1}%%
+  \def\d\realtristan@get{d}
+  \def\t\realtristan@get{t}
+  \def\va\realtristan@get{v1}
+  \def\vb\realtristan@get{v2}
+  \Delta \d = \left(\frac{\va + \vb}{2}\right\t)
+  \egroup
+}
+
+\def\kinb[1]{
+  \bgroup
+  \realtristan@set@keys{#1}%%
+  \def\t\realtristan@get{t}
+  \def\a\realtristan@get{a}
+  \def\va\realtristan@get{v1}
+  \def\vb\realtristan@get{v2}
+  \vb = \va + \a\t
+  \egroup
+}
+\def\kinc[1]{
+  \bgroup
+  \realtristan@set@keys{#1}%%
+  \def\d\realtristan@get{d}
+  \def\t\realtristan@get{t}
+  \def\a\realtristan@get{a}
+  \def\va\realtristan@get{v1}
+  \d = \va\t + \frac{1}{2}\a\t^2
+  \egroup
+}
+
+\def\kind[1]{
+  \bgroup
+  \realtristan@set@keys{#1}%%
+  \def\d\realtristan@get{d}
+  \def\a\realtristan@get{a}
+  \def\va\realtristan@get{v1}
+  \def\vb\realtristan@get{v2}
+  \vb = \va + 2\a\d
+  \egroup
+}
+
+\makeatother
+
+
+% % % % % % % % % % % % % % % % % % % % % % %
+%                                           %
+%              Math Commands                %
+%                                           %
+% % % % % % % % % % % % % % % % % % % % % % %
+\def\mat[1]{\begin{matrix}#1\end{matrix}}
+\def\smat[1]{\begin{smallmatrix}#1\end{smallmatrix}}
+
 
 % % % % % % % % % % % % % % % % % % % % % % %
 %                                           %
 %             Equation Commands             %
 %                                           %
 % % % % % % % % % % % % % % % % % % % % % % %
-\def\eq{\@ifstar\@eq\@@eq}
-\def\@eq#1{
-  \@fleqnfalse
-  \begin{align*}#1\end{align*}
-}
-\def\@@eq#1{
-  \@fleqnfalse
-  \begin{align}#1\end{align}
-}
+% Easy Equation
+\def\eq#1{$#1$}
 
-% % % % % % % % % % % % % % % % % % % % % % %
-%                                           %
-%             L-Align Commands              %
-%                                           %
-% % % % % % % % % % % % % % % % % % % % % % %
+% Left Align
 \def\lalign{\@ifstar\@lalign\@@lalign}
 \def\@lalign#1{
   \@fleqntrue
   \begin{flalign*}#1\end{flalign*}
+  \leavevmode
 }
 \def\@@lalign#1{
   \@fleqntrue
   \begin{flalign}#1\end{flalign}
+  \leavevmode
+}
+
+% Middle Align
+\def\malign{\@ifstar\@malign\@@malign}
+\def\@malign#1{
+  \@fleqnfalse
+  \begin{align*}#1\end{align*}
+  \leavevmode
+}
+\def\@@malign#1{
+  \@fleqnfalse
+  \begin{align}#1\end{align}
+  \leavevmode
 }
 
 
+% % % % % % % % % % % % % % % % % % % % % % %
+%                                           %
+%             Header Commands               %
+%                                           %
+% % % % % % % % % % % % % % % % % % % % % % %
+\def\header{\@ifstar\@header\@@header}
+\def\@header#1{\section*{}\label{sec:#1}}
+\def\@@header#1{\section{}\label{sec:#1}}
+\def\headref#1{\cref{#1}}
 
+
+% % % % % % % % % % % % % % % % % % % % % % %
+%                                           %
+%              Image Commands               %
+%                                           %
+% % % % % % % % % % % % % % % % % % % % % % %
+% #1: Scale
+% #2: Image Path
+\def\image[2]{\includegraphics[scale=#1]{#2}}
+
+
+% % % % % % % % % % % % % % % % % % % % % % %
+%                                           %
+%           Adjustment Commands             %
+%                                           %
+% % % % % % % % % % % % % % % % % % % % % % %
+\def\flex[2]{\begin{minipage}{#1\textwidth}#2\end{minipage}\leavevmode}
+\def\adjust[2]{\begin{adjustwidth}{#1cm}{0pt}#2\end{adjustwidth}}
+
+
+% % % % % % % % % %
+%                 %
+%   End of file   %
+%                 %
+% % % % % % % % % %
 \endinput
 %%
 %% End of file `realtristan.sty'.
