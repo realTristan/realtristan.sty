@@ -1,7 +1,9 @@
 # realtristan.sty ![Stars](https://img.shields.io/github/stars/realTristan/realtristan.sty?color=brightgreen) ![Watchers](https://img.shields.io/github/watchers/realTristan/realtristan.sty?label=Watchers)
+
+###Easy-to-type pre-sets for efficiently mwriting notes in LaTeX
+
 ![Capture](https://user-images.githubusercontent.com/75189508/206884294-224af55c-b28c-4eaa-bf17-e8ffbf474fbd.PNG)
 
-Easy-to-type pre-sets for efficiently mwriting notes in LaTeX
 
 # Physics
 - Includes Kinematic Equations
