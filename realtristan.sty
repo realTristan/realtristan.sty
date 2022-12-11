@@ -57,13 +57,35 @@
   \realtristan@set@keys{#1}%%
   \def\d\realtristan@get{d}
   \def\t\realtristan@get{t}
+  \def\a\realtristan@get{a}
+  \def\va\realtristan@get{v1}
+  \d = \va\t + \frac{1}{2}\a\t^2
+  \egroup
+}
+
+\def\kinb[1]{
+  \bgroup
+  \realtristan@set@keys{#1}%%
+  \def\d\realtristan@get{d}
+  \def\t\realtristan@get{t}
+  \def\a\realtristan@get{a}
+  \def\va\realtristan@get{v1}
+  \d = \vb\t - \frac{1}{2}\a\t^2
+  \egroup
+}
+
+\def\kinc[1]{
+  \bgroup
+  \realtristan@set@keys{#1}%%
+  \def\d\realtristan@get{d}
+  \def\t\realtristan@get{t}
   \def\va\realtristan@get{v1}
   \def\vb\realtristan@get{v2}
   \Delta \d = \left(\frac{\va + \vb}{2}\right\t)
   \egroup
 }
 
-\def\kinb[1]{
+\def\kind[1]{
   \bgroup
   \realtristan@set@keys{#1}%%
   \def\t\realtristan@get{t}
@@ -73,18 +95,8 @@
   \vb = \va + \a\t
   \egroup
 }
-\def\kinc[1]{
-  \bgroup
-  \realtristan@set@keys{#1}%%
-  \def\d\realtristan@get{d}
-  \def\t\realtristan@get{t}
-  \def\a\realtristan@get{a}
-  \def\va\realtristan@get{v1}
-  \d = \va\t + \frac{1}{2}\a\t^2
-  \egroup
-}
 
-\def\kind[1]{
+\def\kine[1]{
   \bgroup
   \realtristan@set@keys{#1}%%
   \def\d\realtristan@get{d}
