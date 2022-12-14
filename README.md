@@ -5,6 +5,11 @@
 ![Capture](https://user-images.githubusercontent.com/75189508/206884294-224af55c-b28c-4eaa-bf17-e8ffbf474fbd.PNG)
 
 
+# Install
+```
+Using lat.cli => lat install realTristan/realtristan.sty
+```
+
 # Physics
 - Includes Kinematic Equations
 - Includes Energy and Momentum Equations
