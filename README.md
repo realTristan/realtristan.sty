@@ -1,9 +1,9 @@
 # realtristan.sty ![Stars](https://img.shields.io/github/stars/realTristan/realtristan.sty?color=brightgreen) ![Watchers](https://img.shields.io/github/watchers/realTristan/realtristan.sty?label=Watchers)
 
-# Install
+# Install (lat.cli)
 
 ```
-Using lat.cli => lat install realTristan/realtristan.sty
+lat install realTristan/realtristan.sty
 ```
 
 # Preview 
