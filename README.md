@@ -4,7 +4,7 @@
 # Install with lat.cli
 
 ```
-lat install realTristan/realtristan.sty
+lat -i https://github.com/realTristan/realtristan.sty
 ```
 
 # Preview 
