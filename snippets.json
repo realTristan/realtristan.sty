@@ -1,0 +1,128 @@
+{
+    "etot": {
+		"scope": "",	
+		"prefix": "etot",	
+		"body": ["\\etot"],
+		"description": "Etot Variable"
+	},
+    "ptot": {
+        "scope": "",
+        "prefix": "ptot",
+        "body": ["\\ptot"],
+        "description": "Ptot Variable"
+    },
+    "ek": {
+        "scope": "",
+        "prefix": "ek",
+        "body": ["\\ek"],
+        "description": "1/2mv^2"
+    },
+    "ee": {
+        "scope": "",
+        "prefix": "ee",
+        "body": ["\\ee"],
+        "description": "1/2kx^2"
+    },
+    "kina": {
+        "scope": "",
+        "prefix": "kina",
+        "body": ["\\kina{", "}"],
+        "description": "d = [v1 * t] + [(a * t^2) / 2]"
+    },
+    "kinb": {
+        "scope": "",
+        "prefix": "kinb",
+        "body": ["\\kinb{", "}"],
+        "description": "d = v2 * t - [(a * t^2) / 2]"
+    },
+    "kinc": {
+        "scope": "",
+        "prefix": "kinc",
+        "body": ["\\kinc{", "}"],
+        "description": "d = [(v1 + v2) / 2] * t"
+    },
+    "kind": {
+        "scope": "",
+        "prefix": "kind",
+        "body": ["\\kind{", "}"],
+        "description": "v2 = v1 + a * t"
+    },
+    "kine": {
+        "scope": "",
+        "prefix": "kine",
+        "body": ["\\kine{", "}"],
+        "description": "v2 = v1 + 2(a * d)"
+    },
+    "lalign": {
+        "scope": "",
+        "prefix": "lalign",
+        "body": ["\\begin{flalign}", "\\end{flalign}"],
+        "description": "Left Align"
+    },
+    "lalign*": {
+        "scope": "",
+        "prefix": "lalign",
+        "body": ["\\begin{flalign*}", "\\end{flalign*}"],
+        "description": "Left Align *"
+    },
+    "malign": {
+        "scope": "",
+        "prefix": "malign",
+        "body": ["\\begin{align}", "\\end{align}"],
+        "description": "Middle Align"
+    },
+    "malign*": {
+        "scope": "",
+        "prefix": "malign",
+        "body": ["\\begin{align*}", "\\end{align*}"],
+        "description": "Middle Align *"
+    },
+    "header": {
+        "scope": "",
+        "prefix": "header",
+        "body": ["\\header{", "}"],
+        "description": "Labeled Header"
+    },
+    "b": {
+        "scope": "",
+        "prefix": "b",
+        "body": ["\\b{", "}"],
+        "description": "Bold Text"
+    },
+    "it": {
+        "scope": "",
+        "prefix": "i",
+        "body": ["\\it{", "}"],
+        "description": "Italic Text"
+    },
+    "bit": {
+        "scope": "",
+        "prefix": "bit",
+        "body": ["\\bit{", "}"],
+        "description": "Bold Italic Text"
+    },
+    "email": {
+        "scope": "",
+        "prefix": "email",
+        "body": ["\\email{", "}"],
+        "description": "Referrable Email Text"
+    },
+    "image": {
+        "scope": "",
+        "prefix": "image",
+        "body": ["\\image{scale", "}", "{path", "}"],
+        "description": "Image"
+    },
+    "flex": {
+        "scope": "",
+        "prefix": "flex",
+        "body": ["\\flex{width", "}", "{item", "}"],
+        "description": "Minipage"
+    },
+    "adjust": {
+        "scope": "",
+        "prefix": "adjust",
+        "body": ["\\adjust{width", "}", "{items", "}"],
+        "description": "Move items to right"
+    }
+}

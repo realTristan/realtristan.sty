@@ -2,6 +2,7 @@
 ![LaTeX_logo](https://user-images.githubusercontent.com/75189508/207668565-239cfe23-67e5-4357-8e7d-1b9b0bcf2c29.png)
 
 # Install with lat.cli
+### This installs both the .sty and snippets files
 
 ```
 lat -i realTristan/realtristan.sty
