@@ -16,6 +16,7 @@
 \RequirePackage[]{changepage}
 \RequirePackage[]{keyval}
 \RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{tcolorbox}
 \RequirePackage[colorlinks=true]{hyperref}
 \hypersetup{
     linkcolor=NavyBlue,
@@ -159,6 +160,22 @@
   \leavevmode
 }
 
+% % % % % % % % % % % % % % % % % % % % % %
+%                                         %
+%             Coloured Boxes              %
+%                                         %
+% % % % % % % % % % % % % % % % % % % % % %
+% Red Box
+\newtcolorbox{redbox*}{colback=red!5!white,colframe=red!75!black}
+\newtcolorbox{redbox}[1]{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#1}
+
+% Green Box
+\newtcolorbox{greenbox*}{colback=green!5!white,colframe=green!75!black}
+\newtcolorbox{greenbox}[1]{colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries,title=#1}
+
+% Blue Box
+\newtcolorbox{bluebox*}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{bluebox}[1]{colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,title=#1}
 
 % % % % % % % % % %
 %                 %
