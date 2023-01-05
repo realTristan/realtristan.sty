@@ -14,43 +14,43 @@
     "ek": {
         "scope": "",
         "prefix": "ek",
-        "body": ["\\ek"],
+        "body": ["\\ek{m=, v=}"],
         "description": "1/2mv^2"
     },
     "ee": {
         "scope": "",
         "prefix": "ee",
-        "body": ["\\ee"],
+        "body": ["\\ee{k=, x=}"],
         "description": "1/2kx^2"
     },
     "kina": {
         "scope": "",
         "prefix": "kina",
-        "body": ["\\kina{", "}"],
+        "body": ["\\kina{d=, v1=, t=, a=}"],
         "description": "d = [v1 * t] + [(a * t^2) / 2]"
     },
     "kinb": {
         "scope": "",
         "prefix": "kinb",
-        "body": ["\\kinb{", "}"],
+        "body": ["\\kinb{d=, v2=, t=, a=}"],
         "description": "d = v2 * t - [(a * t^2) / 2]"
     },
     "kinc": {
         "scope": "",
         "prefix": "kinc",
-        "body": ["\\kinc{", "}"],
+        "body": ["\\kinc{d=, v1=, v2=, t=}"],
         "description": "d = [(v1 + v2) / 2] * t"
     },
     "kind": {
         "scope": "",
         "prefix": "kind",
-        "body": ["\\kind{", "}"],
+        "body": ["\\kind{v2=, v1=, t=, a=}"],
         "description": "v2 = v1 + a * t"
     },
     "kine": {
         "scope": "",
         "prefix": "kine",
-        "body": ["\\kine{", "}"],
+        "body": ["\\kine{v2=, v1=, d=, a=}"],
         "description": "v2 = v1 + 2(a * d)"
     },
     "lalign": {
@@ -80,49 +80,49 @@
     "header": {
         "scope": "",
         "prefix": "header",
-        "body": ["\\header{", "}"],
+        "body": ["\\header{}"],
         "description": "Labeled Header"
     },
     "b": {
         "scope": "",
         "prefix": "b",
-        "body": ["\\b{", "}"],
+        "body": ["\\b{}"],
         "description": "Bold Text"
     },
     "it": {
         "scope": "",
         "prefix": "i",
-        "body": ["\\it{", "}"],
+        "body": ["\\it{}"],
         "description": "Italic Text"
     },
     "bit": {
         "scope": "",
         "prefix": "bit",
-        "body": ["\\bit{", "}"],
+        "body": ["\\bit{}"],
         "description": "Bold Italic Text"
     },
     "email": {
         "scope": "",
         "prefix": "email",
-        "body": ["\\email{", "}"],
+        "body": ["\\email{}"],
         "description": "Referrable Email Text"
     },
     "image": {
         "scope": "",
         "prefix": "image",
-        "body": ["\\image{scale", "}", "{path", "}"],
+        "body": ["\\image{scale=}", "{path}"],
         "description": "Image"
     },
     "flex": {
         "scope": "",
         "prefix": "flex",
-        "body": ["\\flex{width", "}", "{item", "}"],
+        "body": ["\\flex{width=}", "{item}"],
         "description": "Minipage"
     },
     "adjust": {
         "scope": "",
         "prefix": "adjust",
-        "body": ["\\adjust{width", "}", "{items", "}"],
+        "body": ["\\adjust{width=}", "{items}"],
         "description": "Move items to right"
     }
 }
