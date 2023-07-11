@@ -8,23 +8,23 @@
 lat -i realTristan/realtristan.sty
 ```
 
-# Preview 
+## Preview 
 ![Capture](https://user-images.githubusercontent.com/75189508/206884294-224af55c-b28c-4eaa-bf17-e8ffbf474fbd.PNG)
 
-# Physics
+### Physics
 - Includes Kinematic Equations
 - Includes Energy and Momentum Equations
 - Includes Uniform Motion Equation
 
-# Math
+### Math
 - Includes Matrices
 
-# Adjustments
-- Includes easy to use environments for adjustwidth, align, etc.
+### Adjustments
+- Includes easy-to-use environments for adjusting width, alignment, etc.
 
-# Text and Headers
-- Includes easier to type bold, italic, bold + italic commands
-- Includes easy to type headers (sections) with a \headref command to reference them
+### Text and Headers
+- Includes easy-to-type bold, italic, bold + italic commands
+- Includes easy-to-type headers (sections) with a \headref command to reference them
 
 # Coloring / Styling
-- Styles urls, emails, etc. (anything with href, references, etc.)
+- Styles URLs, emails, etc. (anything with href, references, etc.)
