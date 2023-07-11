@@ -26,5 +26,5 @@ lat -i realTristan/realtristan.sty
 - Includes easy-to-type bold, italic, bold + italic commands
 - Includes easy-to-type headers (sections) with a \headref command to reference them
 
-# Coloring / Styling
+### Coloring / Styling
 - Styles URLs, emails, etc. (anything with href, references, etc.)
